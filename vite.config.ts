@@ -1,9 +1,10 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { resolve } from 'path';
+import { resolve } from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    base: "/systemwork-ui/",
     plugins: [react()],
     resolve: {
         alias: {
