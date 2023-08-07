@@ -1,6 +1,6 @@
 import { Theme } from "@mui/material/styles";
 
-const ListItem = (theme: Theme) => {
+const ListItem = (_theme: Theme) => {
     return ({
         defaultProps: {
             disableGutters: true,

@@ -1,7 +1,7 @@
 import pxToRem from "../functions/pxToRem";
 import { Theme } from "@mui/material/styles";
 
-const Icon = (theme: Theme) => {
+const Icon = (_theme: Theme) => {
     return ({
         defaultProps: {
             baseClassName: "material-icons-round",

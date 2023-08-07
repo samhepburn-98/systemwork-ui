@@ -1,7 +1,7 @@
 import pxToRem from "../../functions/pxToRem";
 import { Theme } from "@mui/material/styles";
 
-const Step = (theme: Theme) => {
+const Step = (_theme: Theme) => {
     return ({
         styleOverrides: {
             root: {

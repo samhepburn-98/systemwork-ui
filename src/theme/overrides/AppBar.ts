@@ -1,6 +1,6 @@
 import { Theme } from "@mui/material/styles";
 
-const AppBar = (theme: Theme) => {
+const AppBar = (_theme: Theme) => {
     return ({
         defaultProps: {
             color: "transparent" as const,

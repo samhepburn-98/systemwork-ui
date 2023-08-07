@@ -1,4 +1,4 @@
-import { createContext, FC, forwardRef, ReactNode, useContext, useMemo } from "react";
+import { createContext, FC, ForwardedRef, forwardRef, ReactNode, useContext, useMemo } from "react";
 
 import MDBox from "src/mui-components/MDBox";
 
@@ -50,7 +50,7 @@ const MDPagination: FC<MDPaginationProps> = forwardRef(
             children,
             ...rest
         },
-        ref
+        ref:ForwardedRef<HTMLButtonElement>
     ) => {
         const context = useContext(Context);
         const paginationSize = context ? context.size : undefined;

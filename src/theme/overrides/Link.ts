@@ -1,6 +1,6 @@
 import { Theme } from "@mui/material/styles";
 
-const Link = (theme: Theme) => {
+const Link = (_theme: Theme) => {
     return ({
         defaultProps: {
             underline: "none" as const,

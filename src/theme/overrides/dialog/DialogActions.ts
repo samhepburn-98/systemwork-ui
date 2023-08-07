@@ -1,7 +1,7 @@
 import pxToRem from "../../functions/pxToRem";
 import { Theme } from "@mui/material/styles";
 
-const DialogActions = (theme: Theme) => {
+const DialogActions = (_theme: Theme) => {
     return ({
         styleOverrides: {
             root: {

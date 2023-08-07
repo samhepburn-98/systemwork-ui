@@ -1,6 +1,6 @@
 import { Theme } from "@mui/material/styles";
 
-const ListItemText = (theme: Theme) => {
+const ListItemText = (_theme: Theme) => {
     return ({
         styleOverrides: {
             root: {

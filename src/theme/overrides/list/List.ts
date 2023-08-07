@@ -1,6 +1,6 @@
 import { Theme } from "@mui/material/styles";
 
-const List = (theme: Theme) => {
+const List = (_theme: Theme) => {
     return ({
         styleOverrides: {
             padding: {

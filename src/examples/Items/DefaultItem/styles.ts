@@ -18,7 +18,7 @@ const defaultItemIconBox = (theme: Theme, { color }: DefaultItemIconBoxProps) =>
         height: pxToRem(48),
         borderRadius: borderRadius.md,
         color: color === "light" ? dark.main : white.main,
-        background: gradients[color]
+        background: color && gradients[color]
             ? linearGradient(gradients[color].main, gradients[color].state)
             : linearGradient(gradients.info.main, gradients.info.state),
     };

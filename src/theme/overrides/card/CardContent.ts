@@ -1,7 +1,7 @@
 import pxToRem from "../../functions/pxToRem";
 import { Theme } from "@mui/material/styles";
 
-const CardContent = (theme: Theme) => {
+const CardContent = (_theme: Theme) => {
     return ({
         styleOverrides: {
             root: {

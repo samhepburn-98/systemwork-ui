@@ -72,8 +72,8 @@ const DashboardNavbar = ({ absolute, light, isMini }: DashboardNavbarProps) => {
     // Render the notifications menu
     const renderMenu = () => (
         <Menu
-            anchorEl={openMenu}
-            anchorReference={null}
+            // anchorEl={openMenu}
+            // anchorReference={undefined}
             anchorOrigin={{
                 vertical: "bottom",
                 horizontal: "left",

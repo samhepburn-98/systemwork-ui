@@ -1,7 +1,7 @@
 import pxToRem from "../functions/pxToRem";
 import { Theme } from "@mui/material/styles";
 
-const SvgIcon = (theme: Theme) => {
+const SvgIcon = (_theme: Theme) => {
     return ({
         defaultProps: {
             fontSize: "inherit" as const,
