@@ -14,7 +14,7 @@ import routes from "src/routes/routes";
 
 import { setMiniSidenav, setOpenConfigurator, useMaterialUIController } from "src/context";
 
-import brandWhite from "src/assets/images/logo-ct.png";
+import brand from "src/assets/images/systemework-logo.jpeg";
 import MuiThemeProvider from "src/theme/MuiThemeProvider.tsx";
 
 const App = () => {
@@ -83,7 +83,7 @@ const App = () => {
             {layout === "dashboard" && (
                 <>
                     <Sidenav
-                        brand={brandWhite}
+                        brand={brand}
                         brandName="Systemwork"
                         routes={routes}
                         onMouseEnter={handleOnMouseEnter}

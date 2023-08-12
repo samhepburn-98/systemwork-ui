@@ -15,10 +15,9 @@ import SidenavList from "./SidenavList";
 import SidenavItem from "./SidenavItem";
 
 import SidenavRoot from "./SidenavRoot";
-import sidenavLogoLabel from "./styles/sidenav";
 
 import { setMiniSidenav, useMaterialUIController, } from "src/context";
-import { Theme, useTheme } from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles";
 
 interface SidenavProps {
     color?: "primary" | "secondary" | "info" | "success" | "warning" | "error" | "dark" | "light";
@@ -244,7 +243,7 @@ const Sidenav = ({ color = "info", brand = "", brandName, routes, ...rest }: Sid
             variant="permanent"
             miniSidenav={miniSidenav}
         >
-            <MDBox pt={3} pb={1} px={4} textAlign="center">
+            <MDBox pt={2} px={1} textAlign="center">
                 <MDBox
                     display={{ xs: "block", xl: "none" }}
                     position="absolute"
@@ -259,15 +258,7 @@ const Sidenav = ({ color = "info", brand = "", brandName, routes, ...rest }: Sid
                     </MDTypography>
                 </MDBox>
                 <MDBox component={NavLink} to="/" display="flex" alignItems="center">
-                    {brand && <MDBox component="img" src={brand} alt="Brand" width="2rem"/>}
-                    <MDBox
-                        width={!brandName ? "100%" : undefined}
-                        sx={(theme: Theme) => sidenavLogoLabel(theme, { miniSidenav })}
-                    >
-                        <MDTypography component="h6" variant="button" fontWeight="medium" color={textColor}>
-                            {brandName}
-                        </MDTypography>
-                    </MDBox>
+                    {brand && <MDBox component="img" src={brand} alt="Brand" width="100%"/>}
                 </MDBox>
             </MDBox>
             <Divider

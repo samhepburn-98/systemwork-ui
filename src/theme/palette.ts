@@ -163,7 +163,7 @@ const palette: { light: Types, dark: Types } = {
         },
 
         dark: {
-            main: "#344767",
+            main: "#2F4454",
             focus: "#2c3c58",
         },
 
@@ -216,8 +216,8 @@ const palette: { light: Types, dark: Types } = {
             },
 
             dark: {
-                main: "#42424a",
-                state: "#191919",
+                main: "#2F4454",
+                state: "#21303b",
             },
         },
 
@@ -346,9 +346,9 @@ const palette: { light: Types, dark: Types } = {
         mode: "dark",
 
         background: {
-            default: "#1a2035",
-            sidenav: "#1f283e",
-            card: "#202940",
+            default: "#1c2932",
+            sidenav: "#2f4454",
+            card: "#263643",
         },
 
         text: {
@@ -461,7 +461,7 @@ const palette: { light: Types, dark: Types } = {
 
             dark: {
                 main: "#323a54",
-                state: "#1a2035",
+                state: "#21303b",
             },
         },
 

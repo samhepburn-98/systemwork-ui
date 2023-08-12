@@ -21,7 +21,7 @@ const SidenavRoot = styled(Drawer)((
 
     const backgroundValue = darkMode
         ? background.sidenav
-        : linearGradient(gradients.dark.main, gradients.dark.state);
+        : linearGradient(`${gradients.dark.main}, ${gradients.dark.main}`, gradients.dark.state);
 
     // styles for the sidenav when miniSidenav={false}
     const drawerOpenStyles = () => ({
