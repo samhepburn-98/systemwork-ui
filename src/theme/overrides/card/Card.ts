@@ -6,7 +6,6 @@ const Card = (theme: Theme) => {
     const { borderWidth, borderRadius } = theme.borders;
     const { md } = theme.boxShadows;
     const isLight = theme.palette.mode === "light";
-    console.log(isLight);
     return ({
         styleOverrides: {
             root: {

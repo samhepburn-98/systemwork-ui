@@ -3,15 +3,12 @@ import { Theme } from "@mui/material/styles";
 interface ItemProps {
     active: string | boolean;
     color: "primary" | "secondary" | "info" | "success" | "warning" | "error" | "dark" | "light";
-    transparentSidenav: boolean;
-    whiteSidenav: boolean;
 }
 
-const item = (theme: Theme, { active, color, transparentSidenav, whiteSidenav }: ItemProps) => {
+const item = (theme: Theme, { active, color }: ItemProps) => {
     const { palette, borders, functions, transitions } = theme;
-    const darkMode = palette.mode === "dark";
 
-    const { transparent, white, grey } = palette;
+    const { transparent, white } = palette;
     const { borderRadius } = borders;
     const { rgba } = functions;
 
@@ -25,15 +22,8 @@ const item = (theme: Theme, { active, color, transparentSidenav, whiteSidenav }:
         backgroundColor: () => {
             let backgroundValue = transparent.main;
 
-            if (
-                (active === "isParent" && !transparentSidenav && !whiteSidenav) ||
-                (active === "isParent" && transparentSidenav && darkMode)
-            ) {
+            if (active === "isParent") {
                 backgroundValue = rgba(white.main, 0.2);
-            } else if (active === "isParent" && transparentSidenav) {
-                backgroundValue = grey[300];
-            } else if (active === "isParent" && whiteSidenav) {
-                backgroundValue = grey[200];
             } else if (active) {
                 backgroundValue = palette[color].main;
             }
@@ -48,7 +38,7 @@ const item = (theme: Theme, { active, color, transparentSidenav, whiteSidenav }:
         "&:hover, &:focus": {
             backgroundColor:
                 !active &&
-                rgba((transparentSidenav && !darkMode) || whiteSidenav ? grey[400] : white.main, 0.2),
+                rgba(white.main, 0.2),
         },
     };
 };
@@ -59,15 +49,12 @@ interface ItemContentProps {
     name: string;
     open?: boolean;
     nested?: boolean;
-    transparentSidenav: boolean;
-    whiteSidenav: boolean;
 }
 
-const itemContent = (theme: Theme, { miniSidenav, name, active, transparentSidenav, whiteSidenav }: ItemContentProps) => {
+const itemContent = (theme: Theme, { miniSidenav, name, active }: ItemContentProps) => {
     const { palette, typography, transitions, functions } = theme;
-    const darkMode = palette.mode === "dark";
 
-    const { white, dark } = palette;
+    const { white } = palette;
     const { size, fontWeightRegular, fontWeightLight } = typography;
     const { pxToRem } = functions;
 
@@ -82,10 +69,7 @@ const itemContent = (theme: Theme, { miniSidenav, name, active, transparentSiden
         position: "relative",
 
         "& span": {
-            color:
-                ((transparentSidenav && !darkMode) || whiteSidenav) && (active === "isParent" || !active)
-                    ? dark.main
-                    : white.main,
+            color: white.main,
             fontWeight: active ? fontWeightRegular : fontWeightLight,
             fontSize: size.sm,
             opacity: miniSidenav ? 0 : 1,
@@ -97,10 +81,7 @@ const itemContent = (theme: Theme, { miniSidenav, name, active, transparentSiden
 
         "&::before": {
             content: `"${name[0]}"`,
-            color:
-                ((transparentSidenav && !darkMode) || whiteSidenav) && (active === "isParent" || !active)
-                    ? dark.main
-                    : white.main,
+            color: white.main,
             fontWeight: fontWeightRegular,
             display: "flex",
             alignItems: "center",
@@ -120,15 +101,12 @@ interface ItemArrowProps {
     active?: string | boolean;
     miniSidenav: boolean;
     open: boolean;
-    transparentSidenav: boolean;
-    whiteSidenav: boolean;
 }
 
-const itemArrow = (theme: Theme, { noCollapse, transparentSidenav, whiteSidenav, miniSidenav, open, active }: ItemArrowProps) => {
+const itemArrow = (theme: Theme, { noCollapse, miniSidenav, open, active }: ItemArrowProps) => {
     const { palette, typography, transitions, breakpoints, functions } = theme;
-    const darkMode = palette.mode === "dark";
 
-    const { white, dark } = palette;
+    const { white } = palette;
     const { size } = typography;
     const { pxToRem, rgba } = functions;
 
@@ -138,17 +116,7 @@ const itemArrow = (theme: Theme, { noCollapse, transparentSidenav, whiteSidenav,
         marginBottom: pxToRem(-1),
         transform: open ? "rotate(0)" : "rotate(-180deg)",
         color: () => {
-            let colorValue;
-
-            if (transparentSidenav && darkMode) {
-                colorValue = open || active ? white.main : rgba(white.main, 0.25);
-            } else if (transparentSidenav || whiteSidenav) {
-                colorValue = open || active ? dark.main : rgba(dark.main, 0.25);
-            } else {
-                colorValue = open || active ? white.main : rgba(white.main, 0.5);
-            }
-
-            return colorValue;
+            return open || active ? white.main : rgba(white.main, 0.5);
         },
         transition: transitions.create(["color", "transform", "opacity"], {
             easing: transitions.easing.easeInOut,
@@ -157,7 +125,7 @@ const itemArrow = (theme: Theme, { noCollapse, transparentSidenav, whiteSidenav,
 
         [breakpoints.up("xl")]: {
             display:
-                noCollapse || (transparentSidenav && miniSidenav) || miniSidenav
+                noCollapse || miniSidenav
                     ? "none !important"
                     : "block !important",
         },

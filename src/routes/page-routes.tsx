@@ -1,9 +1,7 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import CustomerPage from "src/pages/CustomerPage.tsx";
 import SignInPage from "src/pages/SignInPage.tsx";
 import App from "src/App.tsx";
-import CustomerPageAlt from "src/pages/CustomerPageAlt.tsx";
-import SearchPage from "src/pages/SearchPage.tsx";
+import CustomerPageAlt from "src/pages/CustomerPage.tsx";
 import SearchPageAlt from "src/pages/SearchPageAlt.tsx";
 
 const router = createBrowserRouter([
@@ -20,19 +18,11 @@ const router = createBrowserRouter([
                     element: (<SignInPage/>),
                 },
                 {
-                    path: "customers/1",
-                    element: (<CustomerPage/>),
-                },
-                {
                     path: "customers/2",
                     element: (<CustomerPageAlt/>),
                 },
                 {
                     path: "search",
-                    element: (<SearchPage/>),
-                },
-                {
-                    path: "search-alt",
                     element: (<SearchPageAlt/>),
                 },
             ]

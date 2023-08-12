@@ -224,14 +224,14 @@ const createTypography = (mode: "light" | "dark"): Types => ({
 
     body1: {
         fontFamily: baseProperties.fontFamily,
-        fontSize: baseProperties.fontSizeMD,
+        fontSize: baseProperties.fontSizeSM,
         fontWeight: baseProperties.fontWeightRegular,
         lineHeight: 1.625,
     },
 
     body2: {
         fontFamily: baseProperties.fontFamily,
-        fontSize: baseProperties.fontSizeSM,
+        fontSize: baseProperties.fontSizeXS,
         fontWeight: baseProperties.fontWeightLight,
         lineHeight: 1.6,
     },

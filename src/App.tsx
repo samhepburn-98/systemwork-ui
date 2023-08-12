@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 import { Outlet, useLocation } from "react-router-dom";
 
-import { useTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Icon from "@mui/material/Icon";
 
@@ -16,7 +15,6 @@ import routes from "src/routes/routes";
 import { setMiniSidenav, setOpenConfigurator, useMaterialUIController } from "src/context";
 
 import brandWhite from "src/assets/images/logo-ct.png";
-import brandDark from "src/assets/images/logo-ct-dark.png";
 import MuiThemeProvider from "src/theme/MuiThemeProvider.tsx";
 
 const App = () => {
@@ -24,14 +22,8 @@ const App = () => {
     const {
         miniSidenav,
         layout,
-        openConfigurator,
-        sidenavColor,
-        transparentSidenav,
-        whiteSidenav,
+        openConfigurator
     } = controller;
-
-    const theme = useTheme();
-    const darkMode = theme.palette.mode === "dark";
 
     const [onMouseEnter, setOnMouseEnter] = useState(false);
     const { pathname } = useLocation();
@@ -91,8 +83,7 @@ const App = () => {
             {layout === "dashboard" && (
                 <>
                     <Sidenav
-                        color={sidenavColor}
-                        brand={(transparentSidenav && !darkMode) || whiteSidenav ? brandDark : brandWhite}
+                        brand={brandWhite}
                         brandName="Systemwork"
                         routes={routes}
                         onMouseEnter={handleOnMouseEnter}

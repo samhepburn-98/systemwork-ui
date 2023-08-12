@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useMemo, useState } from "react";
 
-import { useAsyncDebounce, useGlobalFilter, usePagination, useSortBy, useTable } from "react-table";
+import { TableInstance, useAsyncDebounce, useGlobalFilter, usePagination, useSortBy, useTable } from "react-table";
 
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -60,7 +60,7 @@ const DataTable = ({
     const data = useMemo<any>(() => table.rows, [table]);
 
     const tableInstance = useTable(
-        { columns, data, initialState: { pageIndex: 0 } },
+        { autoResetPage: false, columns, data, initialState: { pageIndex: 0 } },
         useGlobalFilter,
         useSortBy,
         usePagination
@@ -82,7 +82,7 @@ const DataTable = ({
         setPageSize,
         setGlobalFilter,
         state: { pageIndex, pageSize, globalFilter },
-    }: any = tableInstance;
+    }: TableInstance = tableInstance;
 
     // Set the default value for the entries per page when component mounts
     useEffect(() => setPageSize(defaultValue || 10), [defaultValue]);

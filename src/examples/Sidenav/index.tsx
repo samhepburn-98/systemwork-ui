@@ -17,7 +17,7 @@ import SidenavItem from "./SidenavItem";
 import SidenavRoot from "./SidenavRoot";
 import sidenavLogoLabel from "./styles/sidenav";
 
-import { setMiniSidenav, setTransparentSidenav, setWhiteSidenav, useMaterialUIController, } from "src/context";
+import { setMiniSidenav, useMaterialUIController, } from "src/context";
 import { Theme, useTheme } from "@mui/material/styles";
 
 interface SidenavProps {
@@ -46,7 +46,7 @@ const Sidenav = ({ color = "info", brand = "", brandName, routes, ...rest }: Sid
     const [openNestedCollapse, setOpenNestedCollapse] = useState<boolean | string>(false);
 
     const [controller, dispatch] = useMaterialUIController();
-    const { miniSidenav, transparentSidenav, whiteSidenav } = controller;
+    const { miniSidenav } = controller;
     const theme = useTheme();
     const darkMode = theme.palette.mode === "dark";
 
@@ -58,7 +58,7 @@ const Sidenav = ({ color = "info", brand = "", brandName, routes, ...rest }: Sid
     const itemParentName = items[1];
     const itemName = items[items.length - 1];
 
-    let textColor:
+    const textColor:
         | "primary"
         | "secondary"
         | "info"
@@ -71,12 +71,6 @@ const Sidenav = ({ color = "info", brand = "", brandName, routes, ...rest }: Sid
         | "text"
         | "light" = "white";
 
-    if (transparentSidenav || (whiteSidenav && !darkMode)) {
-        textColor = "dark";
-    } else if (whiteSidenav && darkMode) {
-        textColor = "inherit";
-    }
-
     const closeSidenav = () => setMiniSidenav(dispatch, true);
 
     useEffect(() => {
@@ -88,8 +82,6 @@ const Sidenav = ({ color = "info", brand = "", brandName, routes, ...rest }: Sid
         // A function that sets the mini state of the sidenav.
         function handleMiniSidenav() {
             setMiniSidenav(dispatch, window.innerWidth < 1200);
-            setTransparentSidenav(dispatch, window.innerWidth < 1200 ? false : transparentSidenav);
-            setWhiteSidenav(dispatch, window.innerWidth < 1200 ? false : whiteSidenav);
         }
 
         /**
@@ -237,10 +229,7 @@ const Sidenav = ({ color = "info", brand = "", brandName, routes, ...rest }: Sid
                 returnValue = (
                     <Divider
                         key={key}
-                        light={
-                            (!darkMode && !whiteSidenav && !transparentSidenav) ||
-                            (darkMode && !transparentSidenav && whiteSidenav)
-                        }
+                        light={!darkMode}
                     />
                 );
             }
@@ -253,8 +242,6 @@ const Sidenav = ({ color = "info", brand = "", brandName, routes, ...rest }: Sid
         <SidenavRoot
             {...rest}
             variant="permanent"
-            transparentSidenav={transparentSidenav}
-            whiteSidenav={whiteSidenav}
             miniSidenav={miniSidenav}
         >
             <MDBox pt={3} pb={1} px={4} textAlign="center">
@@ -284,10 +271,7 @@ const Sidenav = ({ color = "info", brand = "", brandName, routes, ...rest }: Sid
                 </MDBox>
             </MDBox>
             <Divider
-                light={
-                    (!darkMode && !whiteSidenav && !transparentSidenav) ||
-                    (darkMode && !transparentSidenav && whiteSidenav)
-                }
+                light={!darkMode}
             />
             <List>{renderRoutes}</List>
         </SidenavRoot>

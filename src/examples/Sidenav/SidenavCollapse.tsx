@@ -35,7 +35,9 @@ const SidenavCollapse = ({
                          }: SidenavCollapseProps) => {
 
     const [controller] = useMaterialUIController();
-    const { miniSidenav, transparentSidenav, whiteSidenav } = controller;
+    const { miniSidenav } = controller;
+    const transparentSidenav = false;
+    const whiteSidenav = false;
 
     const theme = useTheme();
     const darkMode = theme.palette.mode === "dark";

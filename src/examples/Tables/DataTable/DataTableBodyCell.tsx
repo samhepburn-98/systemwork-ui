@@ -14,7 +14,6 @@ const DataTableBodyCell = ({ noBorder = false, align = "left", children }: Props
     const theme = useTheme();
     const { palette } = theme;
     const darkMode = palette.mode === "dark";
-    console.log(darkMode);
     return (
         <MDBox
             component="td"

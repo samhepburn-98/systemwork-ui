@@ -1,3 +1,8 @@
+export type Customer = {
+    name: string;
+    address: Address;
+}
+
 export type Address = {
     addressLine1: string;
     addressLine2: string;
@@ -26,4 +31,31 @@ export type Summary = {
     email: string;
     fileStorage: string;
     securityProvider: string;
+}
+
+export type CustomerProvider = {
+    company: string;
+    service: string;
+    number: string;
+    email: string;
+}
+
+export type SiteNote = {
+    note: string;
+    description: string;
+    detail: string;
+}
+
+export type CustomerUser = {
+    name: string;
+    email: string;
+    mobile: string;
+    landline: string;
+}
+
+export type CustomerDevice = {
+    type: string;
+    serial: string;
+    model: string;
+    ipAddress: string;
 }

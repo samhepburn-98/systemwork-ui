@@ -34,14 +34,14 @@ const SidenavItem = ({
                      }: SidenavItemProps) => {
 
     const [controller] = useMaterialUIController();
-    const { miniSidenav, transparentSidenav, whiteSidenav } = controller;
+    const { miniSidenav } = controller;
 
     return (
         <>
             <ListItem
                 {...rest}
                 component="li"
-                sx={(theme) => item(theme, { active, color, transparentSidenav, whiteSidenav })}
+                sx={(theme) => item(theme, { active, color })}
             >
                 <MDBox
                     sx={(theme: Theme) =>
@@ -50,9 +50,7 @@ const SidenavItem = ({
                             miniSidenav,
                             name,
                             open,
-                            nested,
-                            transparentSidenav,
-                            whiteSidenav
+                            nested
                         })
                     }
                 >
@@ -61,7 +59,7 @@ const SidenavItem = ({
                         <Icon
                             component="i"
                             sx={(theme) =>
-                                itemArrow(theme, { open, miniSidenav, transparentSidenav, whiteSidenav })
+                                itemArrow(theme, { open, miniSidenav })
                             }
                         >
                             expand_less

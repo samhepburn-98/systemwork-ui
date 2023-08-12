@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint vite-project --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint --ext ts,tsx --report-unused-disable-directives",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -16,11 +16,17 @@
     "@fontsource/poppins": "^5.0.5",
     "@mui/icons-material": "^5.14.1",
     "@mui/material": "^5.14.2",
+    "@tanstack/react-query": "^4.32.6",
+    "@tanstack/react-query-devtools": "^4.32.6",
+    "@tanstack/react-table": "^8.9.3",
+    "axios": "^1.4.0",
     "chroma-js": "^2.4.2",
+    "notistack": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.2",
     "react-table": "^7.8.0",
+    "recoil": "^0.7.7",
     "regenerator-runtime": "^0.13.11"
   },
   "devDependencies": {

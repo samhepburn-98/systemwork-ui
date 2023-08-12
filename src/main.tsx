@@ -6,12 +6,15 @@ import { RouterProvider } from "react-router-dom";
 import router from "src/routes/page-routes.tsx";
 import "regenerator-runtime";
 import "@fontsource/poppins";
+import QueryProvider from "src/providers/QueryProvider.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
         <ThemeModeProvider>
             <MaterialUIControllerProvider>
-                <RouterProvider router={router}/>
+                <QueryProvider>
+                    <RouterProvider router={router}/>
+                </QueryProvider>
             </MaterialUIControllerProvider>
         </ThemeModeProvider>
     </React.StrictMode>,

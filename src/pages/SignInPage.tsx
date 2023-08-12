@@ -22,7 +22,7 @@ const SignInPage = () => {
 
     const navigate = useNavigate();
     const onClickSignIn = () => {
-        navigate("/customers/1");
+        navigate("/customers/2");
     };
 
     return (

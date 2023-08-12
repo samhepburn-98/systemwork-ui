@@ -10,12 +10,11 @@ const SearchPageAlt = () => {
             <DashboardNavbar/>
             <MDBox py={5}>
 
-                <MDBox mb={2}>
+                <MDBox mb={2} pl={1}>
                     <MDTypography variant="h2">Customer Search</MDTypography>
                 </MDBox>
 
                 <DataTable table={dataTableData} canSearch/>
-
 
             </MDBox>
 

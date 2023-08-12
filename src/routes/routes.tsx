@@ -20,13 +20,9 @@
  10. The `component` key is used to store the component of its route.
  */
 
-import SignInBasic from "src/pages/SignInPage";
 import MDAvatar from "src/mui-components/MDAvatar";
 import profilePicture from "src/assets/images/team-3.jpg";
 import Icon from "@mui/material/Icon";
-import CustomerPage from "src/pages/CustomerPage.tsx";
-import CustomerPageAlt from "src/pages/CustomerPageAlt.tsx";
-import SearchPageAlt from "src/pages/SearchPageAlt.tsx";
 
 const routes = [
     {
@@ -39,7 +35,15 @@ const routes = [
                 name: "Log out",
                 key: "logout",
                 route: "/auth/sign-in",
-                component: <SignInBasic/>,
+                icon: <Icon fontSize="medium">logout</Icon>
+            },
+            {
+                type: "collapse",
+                name: "Search",
+                key: "searchPageAlt",
+                route: "/search",
+                icon: <Icon fontSize="medium">search</Icon>,
+                noCollapse: true
             },
         ],
     },
@@ -47,38 +51,18 @@ const routes = [
     { type: "title", title: "Pages", key: "title-pages" },
     {
         type: "collapse",
-        name: "Search Page",
-        key: "searchPage",
-        component: <CustomerPageAlt/>,
-        route: "search",
-        icon: <Icon fontSize="medium">receipt_long</Icon>,
-        noCollapse: true
-    },
-    {
-        type: "collapse",
-        name: "Search Page Idea 2",
+        name: "Search",
         key: "searchPageAlt",
-        component: <SearchPageAlt/>,
-        route: "search-alt",
-        icon: <Icon fontSize="medium">receipt_long</Icon>,
+        route: "/search",
+        icon: <Icon fontSize="medium">search</Icon>,
         noCollapse: true
     },
     {
         type: "collapse",
-        name: "Dashboard idea 1",
-        key: "dash1",
-        component: <CustomerPage/>,
-        route: "/customers/1",
-        icon: <Icon fontSize="medium">receipt_long</Icon>,
-        noCollapse: true
-    },
-    {
-        type: "collapse",
-        name: "Dashboard idea 2",
+        name: "Customer",
         key: "dash2",
-        component: <CustomerPageAlt/>,
         route: "/customers/2",
-        icon: <Icon fontSize="medium">receipt_long</Icon>,
+        icon: <Icon fontSize="medium">person</Icon>,
         noCollapse: true
     }
 ];

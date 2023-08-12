@@ -5,13 +5,10 @@ import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
 import Icon from "@mui/material/Icon";
 
 import MDBox from "src/mui-components/MDBox";
 import MDInput from "src/mui-components/MDInput";
-import MDBadge from "src/mui-components/MDBadge";
-import NotificationItem from "src/examples/Items/NotificationItem";
 
 import { navbar, navbarContainer, navbarDesktopMenu, navbarIconButton, navbarMobileMenu, navbarRow, } from "./styles";
 
@@ -31,24 +28,18 @@ const DashboardNavbar = ({ absolute, light, isMini }: DashboardNavbarProps) => {
         "fixed" | "absolute" | "relative" | "static" | "sticky"
     >();
     const [controller, dispatch] = useMaterialUIController();
-    const { miniSidenav, transparentNavbar, fixedNavbar, openConfigurator } = controller;
+    const { miniSidenav, transparentNavbar, openConfigurator } = controller;
 
     const theme = useTheme();
     const darkMode = theme.palette.mode === "dark";
 
-    const [openMenu, setOpenMenu] = useState<boolean>(false);
-
     useEffect(() => {
         // Setting the navbar type
-        if (fixedNavbar) {
-            setNavbarType("sticky");
-        } else {
-            setNavbarType("static");
-        }
+        setNavbarType("sticky");
 
         // A function that sets the transparent state of the navbar.
         function handleTransparentNavbar() {
-            setTransparentNavbar(dispatch, (fixedNavbar && window.scrollY === 0) || !fixedNavbar);
+            setTransparentNavbar(dispatch, window.scrollY === 0);
         }
 
         /**
@@ -62,31 +53,10 @@ const DashboardNavbar = ({ absolute, light, isMini }: DashboardNavbarProps) => {
 
         // Remove event listener on cleanup
         return () => window.removeEventListener("scroll", handleTransparentNavbar);
-    }, [dispatch, fixedNavbar]);
+    }, [dispatch]);
 
     const handleMiniSidenav = () => setMiniSidenav(dispatch, !miniSidenav);
     const handleConfiguratorOpen = () => setOpenConfigurator(dispatch, !openConfigurator);
-    const handleOpenMenu = (event: any) => setOpenMenu(event.currentTarget);
-    const handleCloseMenu = () => setOpenMenu(false);
-
-    // Render the notifications menu
-    const renderMenu = () => (
-        <Menu
-            // anchorEl={openMenu}
-            // anchorReference={undefined}
-            anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-            }}
-            open={Boolean(openMenu)}
-            onClose={handleCloseMenu}
-            sx={{ mt: 2 }}
-        >
-            <NotificationItem icon={<Icon>email</Icon>} title="Check new messages"/>
-            <NotificationItem icon={<Icon>podcasts</Icon>} title="Manage Podcast sessions"/>
-            <NotificationItem icon={<Icon>shopping_cart</Icon>} title="Payment successfully completed"/>
-        </Menu>
-    );
 
     // Styles for the navbar icons
     const iconsStyle = ({
@@ -155,17 +125,6 @@ const DashboardNavbar = ({ absolute, light, isMini }: DashboardNavbarProps) => {
                             >
                                 <Icon sx={iconsStyle}>settings</Icon>
                             </IconButton>
-                            <IconButton
-                                size="small"
-                                color="inherit"
-                                sx={navbarIconButton}
-                                onClick={handleOpenMenu}
-                            >
-                                <MDBadge badgeContent={9} color="error" size="xs" circular>
-                                    <Icon sx={iconsStyle}>notifications</Icon>
-                                </MDBadge>
-                            </IconButton>
-                            {renderMenu()}
                         </MDBox>
                     </MDBox>
                 )}
