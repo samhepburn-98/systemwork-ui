@@ -4,7 +4,7 @@ import { resolve } from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    // base: "/systemwork-ui/",
+    base: "/systemwork-ui/",
     plugins: [react()],
     resolve: {
         alias: {
